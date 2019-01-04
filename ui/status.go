@@ -246,11 +246,8 @@ func (m *statusPanel) updateJob() {
 }
 
 func filenameEllipsis(name string) string {
-	//if len(name) > 26 {
-	//	return name[:23] + "..."
-	//increase filename length
-	if len(name) > 46 {
-                return name[:43] + "..."
+	if len(name) > 26 {
+		return name[:23] + "..."
 	}
 
 	return name
