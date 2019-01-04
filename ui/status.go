@@ -224,20 +224,33 @@ func (m *statusPanel) updateJob() {
 	case 0:
 		text = "Warming up ..."
 	default:
+		//original code
+		//e := time.Duration(int64(s.Progress.PrintTime) * 1e9)
+		//l := time.Duration(int64(s.Progress.PrintTimeLeft) * 1e9)
+		//text = fmt.Sprintf("Elapsed/Left: %s / %s", e, l)
+		//if l == 0 {
+		//	text = fmt.Sprintf("Elapsed: %s", e)
+		//
+		//added to show the elapsed and left times separately, along with the ETA
 		e := time.Duration(int64(s.Progress.PrintTime) * 1e9)
-		l := time.Duration(int64(s.Progress.PrintTimeLeft) * 1e9)
-		text = fmt.Sprintf("Elapsed/Left: %s / %s", e, l)
-		if l == 0 {
-			text = fmt.Sprintf("Elapsed: %s", e)
-		}
+                l := time.Duration(int64(s.Progress.PrintTimeLeft) * 1e9)
+                eta := time.Now().Add(l).Format("Mon Jan 2, 3:04 PM")
+                if l == 0 {
+                        text = fmt.Sprintf("Elapsed: %s", e)
+                } else {
+                        text = fmt.Sprintf("Elapsed: %s | Left: %s | ETA: %s", e, l, eta)
+                }
 	}
 
 	m.left.Label.SetLabel(text)
 }
 
 func filenameEllipsis(name string) string {
-	if len(name) > 26 {
-		return name[:23] + "..."
+	//if len(name) > 26 {
+	//	return name[:23] + "..."
+	//increase filename length
+	if len(name) > 46 {
+                return name[:43] + "..."
 	}
 
 	return name
