@@ -1,6 +1,9 @@
 OctoPrint-TFT [![GitHub release](https://img.shields.io/github/release/mcuadros/OctoPrint-TFT.svg)](https://github.com/mcuadros/OctoPrint-TFT/releases) [![license](https://img.shields.io/github/license/mcuadros/OctoPrint-TFT.svg)]()
 =============
 
+- Added temperature profiles fix from blondak
+- Added fix for Issue #34 (freezes) by removing temperature polling on status screen. 
+
 _OctoPrint-TFT_, a touch interface for TFT touch modules based on GTK+3.
 
 Is a _X application_ to be executed directly in the X Server without any windows
